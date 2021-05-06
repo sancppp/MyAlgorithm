@@ -17,7 +17,10 @@ typedef pair<double, double> PDD;
 //---------------
 const int N = 1e5+10;
 int n;
-void init(){}
+void init(){
+    for(int i=1;i<=6;i++)
+        printf("elldoe\n");
+}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -27,6 +30,7 @@ int main()
 #endif
     int T = 1;
     scanf("%d",&T);
+    init();
     while (T--)
     {
         scanf("%d",&n);
