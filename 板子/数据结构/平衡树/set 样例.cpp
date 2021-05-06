@@ -12,7 +12,7 @@ typedef pair<double, double> PDD;
 #define rif(i, a, b) for (int i = a; i >= b; i--)
 #define init_h memset(h, -1, sizeof h), idx = 0;
 //---------------
-//https://www.acwing.com/problem/content/267/
+//set支持二分搜索（lower_bound&&upper_bound）
 const int N = 1010;
 int n,x;
 int d[N];
