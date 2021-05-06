@@ -13,11 +13,22 @@ typedef pair<double, double> PDD;
 #define init_h memset(h, -1, sizeof h), idx = 0;
 //---------------
 //set支持二分搜索（lower_bound&&upper_bound）
+//只需要重载小于号就行了
 const int N = 1010;
-int n,x;
+int n, x;
 int d[N];
-set<int> s;
-set<int>::iterator iter,temp;
+struct node
+{
+    int l, r;
+    bool operator<(const node &b) const
+    {
+        if (l != b.l)
+            return l < b.l;
+        return r < b.r;
+    }
+};
+
+set<node> s;
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -25,32 +36,33 @@ int main()
     freopen("out.txt", "w", stdout);
     int StartTime = clock();
 #endif
-    s.insert(INF);
-    s.insert(-INF);
-    cin>>n;
-    int ans=0;
-    fir(i,1,n)
+    s.insert({1, 1});
+    s.insert({1, 2});
+    s.insert({9, 2});
+    s.insert({-9, 2});
+    node t = {1, 1};
+    //基本函数
+    s.insert({-9, -2});
+    cout << s.empty() << endl;
+    cout << s.size() << endl;
+    cout << s.count(t) << endl;
+    //元素删除
+    //1,(常用)size_type erase(value) 移除set容器内元素值为value的所有元素，返回移除的元素个数
+    //2,void erase(&pos) 移除pos位置上的元素，无返回值
+    //3,void erase(&first, &last) 移除迭代区间[&first, &last)内的元素，无返回值
+    //4,void clear()， 移除set容器内所有元素
+    //set的遍历
+    for (auto item : s)
     {
-        cin>>x;
-        if(s.size()==2)
-        {
-            ans+=x;
-            s.insert(x);
-        }
-        else
-        {
-            iter = s.lower_bound(x);
-            if(*iter != x)
-            {
-                temp=iter;
-                temp--;
-                ans+=min(abs(*temp-x),abs(*iter-x));
-            }
-            s.insert(x);
-        }
-        //cout<<ans<<endl;
+        cout << item.l << " " << item.r << endl;
     }
-    cout<<ans<<endl;
+    //二分查找
+    auto tt = *lower_bound(s.begin(), s.end(), t);
+    cout << tt.l << "  " << tt.r << endl;
+    tt = *upper_bound(s.begin(), s.end(), t);
+    cout << tt.l << "  " << tt.r << endl;
+
+    s.clear();
 #ifndef ONLINE_JUDGE
     printf("Run_Time = %d ms\n", clock() - StartTime);
 #endif
