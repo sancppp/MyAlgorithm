@@ -32,8 +32,9 @@ int main()
         scanf("%d",&n);
         fir(i,1,n)
         {
-            printf("%d",i);
+            printf("%d ",i);
         }
+        puts("");
     }
 #ifndef ONLINE_JUDGE
     printf("Run_Time = %d ms\n", clock() - StartTime);
