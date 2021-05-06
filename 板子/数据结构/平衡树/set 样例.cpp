@@ -14,6 +14,7 @@ typedef pair<double, double> PDD;
 //---------------
 //set支持二分搜索（lower_bound&&upper_bound）
 //只需要重载小于号就行了
+//内部实现：平衡二叉树
 const int N = 1010;
 int n, x;
 int d[N];
