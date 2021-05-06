@@ -16,7 +16,7 @@ typedef pair<double, double> PDD;
 
 //---------------
 const int N = 1e5+10;
-
+int n;
 void init(){}
 int main()
 {
@@ -29,6 +29,7 @@ int main()
     scanf("%d",&T);
     while (T--)
     {
+        scanf("%d",&n);
     }
 #ifndef ONLINE_JUDGE
     printf("Run_Time = %d ms\n", clock() - StartTime);
