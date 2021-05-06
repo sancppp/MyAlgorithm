@@ -30,6 +30,10 @@ int main()
     while (T--)
     {
         scanf("%d",&n);
+        fir(i,1,n)
+        {
+            printf("%d",i);
+        }
     }
 #ifndef ONLINE_JUDGE
     printf("Run_Time = %d ms\n", clock() - StartTime);
