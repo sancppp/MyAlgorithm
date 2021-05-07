@@ -17,7 +17,7 @@ struct cmp
 
 double f(int x)
 { // x 个上午取室内
-    cout << x << ":" << endl;
+    //cout << x << ":" << endl;
     double ans = 0;
     multiset<double,cmp> q1, q2;
     for (int i = 1; i <= n; i++)
@@ -31,7 +31,7 @@ double f(int x)
     for (int i = 1; i <= x; i++)
     {
         double cur = *q1.begin();
-        cout << cur << endl;
+        
         ans += cur;
         q1.erase(q1.begin());
         q1.insert(cur * 0.6);
@@ -39,7 +39,7 @@ double f(int x)
     for (int i = 1; i <= t - k - x; i++)
     {
         double cur = *q2.begin();
-        cout << cur << endl;
+        
         ans += cur;
         q2.erase(q2.begin());
         q2.insert(cur * 0.6);
@@ -49,7 +49,7 @@ double f(int x)
         if (*q1.begin() > *q2.begin() * 0.8)
         {
             double cur = *q1.begin();
-            cout << cur << endl;
+            
             ans += cur;
             q1.erase(q1.begin());
             q1.insert(cur * 0.6);
@@ -57,7 +57,7 @@ double f(int x)
         else
         {
             double cur = *q2.begin();
-            cout << cur << endl;
+            
             ans += cur * 0.8;
             q2.erase(q2.begin());
             q2.insert(cur * 0.6);
