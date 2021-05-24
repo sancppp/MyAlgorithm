@@ -15,29 +15,10 @@ typedef pair<double, double> PDD;
 #define lowbit(x) x &(-x)
 
 //---------------
-const int N = 1e2 + 10;
-int n, tr[N][N][N];
-void update(int x, int y, int z, int d)
-{
-    for (int i = x; i <= n; i += lowbit(i))
-        for (int j = y; j <= n; j += lowbit(j))
-            for (int k = z; k <= n; k += lowbit(k))
-                tr[i][j][k] += d;
-}
-LL query(int x, int y, int z)
-{
-    LL ret = 0;
-    for (int i = x; i > 0; i -= lowbit(i))
-        for (int j = y; j > 0; j -= lowbit(j))
-            for (int k = z; k > 0; k -= lowbit(k))
-                ret += tr[i][j][k];
-    return ret;
-}
-//无区间修改函数。。
-LL solve(int x, int y, int z, int xx, int yy, int zz)
-{
-    return query(xx, yy, zz) - query(xx, yy, z - 1) - query(xx, y - 1, zz) - query(x - 1, yy, zz) + query(xx, y - 1, z - 1) + query(x - 1, yy, z - 1) + query(x - 1, y - 1, zz) - query(x - 1, y - 1, z - 1);
-}
+const int N = 1e5 + 10;
+int n, m;
+int a[N], b[N];
+void init() {}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -45,11 +26,16 @@ int main()
     freopen("out.txt", "w", stdout);
     int StartTime = clock();
 #endif
-    int T = 1;
-    scanf("%d", &T);
-    while (T--)
+    scanf("%d%d", &n, &m);
+    fir(i, 1, n) scanf("%d", &a[i]);
+    fir(i, 1, m) scanf("%d", &b[i]);
+    int j = 1;
+    fir(i, 1, m)
     {
+        if (a[j] == b[i])
+            j++;
     }
+    cout << (j == n + 1 ? "Yes" : "No") << endl;
 #ifndef ONLINE_JUDGE
     printf("Run_Time = %d ms\n", clock() - StartTime);
 #endif
